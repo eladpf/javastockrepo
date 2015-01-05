@@ -54,6 +54,6 @@ public class Stock {
 	
 	public String getHtmlDescription() {
 		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");    
-		return String.format("<b>Stock symbol</b>: %s, <b>ask</b>: %s, <b>bid</b>: %s, <bdate</b>: %s", getSymbol(), getAsk(), getBid(), sdf.format(getDate()));
+		return String.format("<b>Stock symbol</b>: %s, <b>ask</b>: %s, <b>bid</b>: %s, <b>date</b>: %s", getSymbol(), getAsk(), getBid(), sdf.format(getDate()));
 	}
 }
