@@ -9,6 +9,13 @@ public class Stock {
 	private float ask;
 	private float bid;
 	private Date date;
+	private int recommendation;
+	private int stockQuantity;
+	
+	public static final int BUY = 0;
+	public static final int SELL = 1;
+	public static final int REMOVE = 2;
+	public static final int HOLD = 3;
 	
 	public Stock() { }
 	
