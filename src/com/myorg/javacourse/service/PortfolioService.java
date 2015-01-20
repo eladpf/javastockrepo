@@ -2,11 +2,20 @@ package com.myorg.javacourse.service;
 
 import java.util.Calendar;
 
-import com.myorg.javacourse.Stock;
 import com.myorg.javacourse.model.Portfolio;
+import com.myorg.javacourse.model.Stock;
 
-public class PortfolioManager {
+/**
+ * This service is intend to manage portfolios
+ * @author Elad.Avidan
+ *
+ */
+public class PortfolioService {
 
+	/**
+	 * Creates 3 different stocks, adds them to a new portfolio and returns this portfolio.
+	 * @return a new portfolio with  different stocks.
+	 */
 	public Portfolio getPortfolio() {
 		Portfolio portfolio = new Portfolio();
 		
