@@ -2,6 +2,7 @@ package com.myorg.javacourse.model;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import com.myorg.javacourse.model.Portfolio.ALGO_RECOMMENDATION;
 
 /**
  * A Stock class that contains all the necessary information of a stock and the actions which can be 
@@ -15,13 +16,8 @@ public class Stock {
 	private float ask;
 	private float bid;
 	private Date date;
-	private int recommendation;
+	private ALGO_RECOMMENDATION recommendation;
 	private int stockQuantity;
-	
-	public static final int BUY = 0;
-	public static final int SELL = 1;
-	public static final int REMOVE = 2;
-	public static final int HOLD = 3;
 	
 	/**
 	 * Empty constructor
@@ -52,7 +48,7 @@ public class Stock {
 	 * @param recommendation - number of recommendation
 	 * @param stockQuantity - stock's quantity
 	 */
-	public Stock(String symbol, float ask, float bid, Date date, int recommendation, int stockQuantity) {
+	public Stock(String symbol, float ask, float bid, Date date, ALGO_RECOMMENDATION recommendation, int stockQuantity) {
 		this(symbol, ask, bid, date);
 		this.recommendation = recommendation;
 		this.stockQuantity = stockQuantity;
@@ -98,12 +94,35 @@ public class Stock {
 		this.date = date;
 	}
 	
+	public void setRecommandation(ALGO_RECOMMENDATION recommendation) {
+		this.recommendation = recommendation;
+	}
+	
+	public ALGO_RECOMMENDATION getRecommandation() {
+		return this.recommendation;
+	}
+	
+	public void setQuantity(int quantity) {
+		this.stockQuantity = quantity;
+	}
+	
+	public int getQuantity() {
+		return this.stockQuantity;
+	}
+	
 	/**
 	 * Builds an HTML string which presents this stock details.
 	 * @return an HTML string which presents this stock details.
 	 */
 	public String getHtmlDescription() {
 		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy");    
-		return String.format("<b>Stock symbol</b>: %s, <b>ask</b>: %s, <b>bid</b>: %s, <b>date</b>: %s", getSymbol(), getAsk(), getBid(), sdf.format(getDate()));
+		return String.format("<b>Stock symbol</b>: %s, <b>ask</b>: %s, <b>bid</b>: %s, <b>date</b>: %s, <b>quantity</b>: %s", getSymbol(), getAsk(), getBid(), sdf.format(getDate()), getQuantity());
+	}
+
+	@Override
+	public String toString() {
+		return "Stock [symbol=" + symbol + ", ask=" + ask + ", bid=" + bid
+				+ ", date=" + date + ", recommendation=" + recommendation
+				+ ", stockQuantity=" + stockQuantity + "]";
 	}
 }
